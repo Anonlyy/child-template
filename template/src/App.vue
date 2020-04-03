@@ -1,34 +1,42 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    {{#router}}
-    <router-view/>
-    {{else}}
-    <HelloWorld/>
-    {{/router}}
+  <div class="app">
+    <div class="nav">
+      <router-link to="/app-javascript/home">
+        Home
+      </router-link> |
+      <router-link to="/app-javascript/about">
+        About
+      </router-link>
+    </div>
+    <router-view />
   </div>
 </template>
 
 <script>
-{{#unless router}}
-import HelloWorld from './components/HelloWorld'
+import './base'
 
-{{/unless}}
-export default {
-  name: 'App'{{#router}}{{else}},
-  components: {
-    HelloWorld
-  }{{/router}}
-}
+export default {}
 </script>
 
-<style>
-#app {
+<style scoped>
+.app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
+.nav {
+  padding: 30px;
+}
+
+.nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.nav a.router-link-exact-active {
+  color: #42b983;
+}
+
 </style>
